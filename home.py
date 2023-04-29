@@ -1,10 +1,9 @@
-import os
 import smtplib
 import ssl
 import tkinter
 from tkinter import ttk
 from tkinter.filedialog import askopenfile
-# from PIL import Image as pimg, ImageTk
+from PIL import Image as pimg, ImageTk
 import webbrowser
 from tkinter import *
 import re
@@ -98,21 +97,21 @@ class Home:
         self.notebook.pack()
         ############# HOME Tab #############
         #0
-        # self.home = home_dashboard.DashBoard(self.home_tab)
+        self.home = home_dashboard.DashBoard(self.home_tab)
 
         ############# STUDENTS Tab #############
         # TODO : import and export csv
         # student image
         #0
-        # self.img_student = (pimg.open("C:\\Users\\dell\\Pictures\\yt.JPG")).resize((300, 205), pimg.ANTIALIAS)
-        # self.img_student = ImageTk.PhotoImage(self.img_student)
-        # self.img_fr_student= tkinter.Frame(self.students_tab)
-        # self.img_fr_student.place(x=780, y=23, width=110, height=140)
-        # self.img_lbl_student = tkinter.Label(self.img_fr_student, image=self.img_student)
-        # self.img_lbl_student.pack()
-        # self.img_btn_student = tkinter.Button(self.students_tab, text='  Upload image ',
-        #                         image=self.stf_img, compound='left', bg='#689df2', command=self.upload_student_img)
-        # self.img_btn_student.place(x=780, y=172)
+        self.img_student = (pimg.open("C:\\Users\\dell\\Pictures\\yt.JPG")).resize((300, 205), pimg.ANTIALIAS)
+        self.img_student = ImageTk.PhotoImage(self.img_student)
+        self.img_fr_student= tkinter.Frame(self.students_tab)
+        self.img_fr_student.place(x=780, y=23, width=110, height=140)
+        self.img_lbl_student = tkinter.Label(self.img_fr_student, image=self.img_student)
+        self.img_lbl_student.pack()
+        self.img_btn_student = tkinter.Button(self.students_tab, text='  Upload image ',
+                                image=self.stf_img, compound='left', bg='#689df2', command=self.upload_student_img)
+        self.img_btn_student.place(x=780, y=172)
         #****** Info frame
         self.students_info_frame = tkinter.LabelFrame(self.students_tab, text="Student information",
                                 font=('Helveticabold', 15), bg="white", fg="crimson", height=200)
@@ -241,15 +240,15 @@ class Home:
         ############# HR Tab #############
         # staff image
         #0
-        # self.img_staff = (pimg.open("C:\\Users\\dell\\Pictures\\yt.JPG")).resize((300, 205), pimg.ANTIALIAS)
-        # self.img_staff = ImageTk.PhotoImage(self.img_staff)
-        # self.img_fr_staff = tkinter.Frame(self.hr_tab)
-        # self.img_fr_staff.place(x=780, y=23, width=110, height=140)
-        # self.img_lbl_staff = tkinter.Label(self.img_fr_staff, image=self.img_staff)
-        # self.img_lbl_staff.pack()
-        # self.img_btn_staff = tkinter.Button(self.hr_tab, text='  Upload image ',
-        #                         image=self.stf_img, compound='left', bg='#689df2', command=self.upload_stuff_img)
-        # self.img_btn_staff.place(x=780, y=172)
+        self.img_staff = (pimg.open("C:\\Users\\dell\\Pictures\\yt.JPG")).resize((300, 205), pimg.ANTIALIAS)
+        self.img_staff = ImageTk.PhotoImage(self.img_staff)
+        self.img_fr_staff = tkinter.Frame(self.hr_tab)
+        self.img_fr_staff.place(x=780, y=23, width=110, height=140)
+        self.img_lbl_staff = tkinter.Label(self.img_fr_staff, image=self.img_staff)
+        self.img_lbl_staff.pack()
+        self.img_btn_staff = tkinter.Button(self.hr_tab, text='  Upload image ',
+                                image=self.stf_img, compound='left', bg='#689df2', command=self.upload_stuff_img)
+        self.img_btn_staff.place(x=780, y=172)
         #****** Info frame
         self.stuff_info_frame = tkinter.LabelFrame(self.hr_tab, text="Stuff information", font=('Helveticabold', 15),
                             bg="white", fg="green", height=200, width=1000)
@@ -392,15 +391,15 @@ class Home:
         self.current_user_table["show"] = 'headings'
         # user image
         #0
-        # self.img = (pimg.open("C:\\Users\\dell\\Pictures\\yt.JPG")).resize((300, 205), pimg.ANTIALIAS)
-        # self.curr_img = ImageTk.PhotoImage(self.img)
-        # self.curr_img_fr = tkinter.Frame(self.frame_user)
-        # self.curr_img_fr.place(x=815, y=1, width=90, height=100)
-        # self.curr_img_lbl = tkinter.Label(self.curr_img_fr, image=self.curr_img)
-        # self.curr_img_lbl.pack()
+        self.img = (pimg.open("C:\\Users\\dell\\Pictures\\yt.JPG")).resize((300, 205), pimg.ANTIALIAS)
+        self.curr_img = ImageTk.PhotoImage(self.img)
+        self.curr_img_fr = tkinter.Frame(self.frame_user)
+        self.curr_img_fr.place(x=815, y=1, width=90, height=100)
+        self.curr_img_lbl = tkinter.Label(self.curr_img_fr, image=self.curr_img)
+        self.curr_img_lbl.pack()
         # user buttons
         self.add_img_btn = tkinter.Button(self.frame_user, width=20, pady=7, text='add face signin', bg='#3f8ad4', fg='white',
-                                      border=0)#0,command=self.add_usr_img#)
+                                      border=0,command=self.add_usr_img)
         self.add_img_btn.place(x=600, y=107)
         self.add_usr_btn = tkinter.Button(self.frame_user, width=20, pady=7, text='Add new user', bg='#54ab1a', fg='white',
                                       border=0, command=self.add_new_usr)
@@ -422,10 +421,10 @@ class Home:
         # fill table -->
         #0
 
-        # self.user_info = (login.Login.current_user[1],login.Login.current_user[1],
-        #                   login.Login.current_user[1],login.Login.current_user[4],
-        #                   login.Login.current_user[5],login.Login.current_user[3])
-        # self.current_user_table.insert('','end',values=self.user_info)
+        self.user_info = (login.Login.current_user[1],login.Login.current_user[1],
+                          login.Login.current_user[1],login.Login.current_user[4],
+                          login.Login.current_user[5],login.Login.current_user[3])
+        self.current_user_table.insert('','end',values=self.user_info)
         #****** Other users table
         self.other_users_label = tkinter.Label(self.frame_user, text="Other users",
                             font=('Helveticabold', 13, "bold"), bg="white", fg="red")
@@ -466,7 +465,7 @@ class Home:
                         font=('Microsoft YaHei UI Light', 11, 'bold'), bg="white")
         self.language_lbl.place(x=210, y=30)
         self.mail_receive = tkinter.Checkbutton(self.frame_general, text="I want to receive notifications on my email",
-                        font=('Microsoft YaHei UI Light', 11, 'bold'), bg="white")#0,command=self.mail_receive)
+                        font=('Microsoft YaHei UI Light', 11, 'bold'), bg="white",command=self.mail_receive)
         self.mail_receive.place(x=210, y=80)
         self.n = tkinter.StringVar()
         self.lang_box = ttk.Combobox(self.frame_general, width=27, textvariable=self.n, state="readonly")
@@ -474,7 +473,7 @@ class Home:
         self.lang_box.place(x=330, y=33)
         self.lang_box.current(1)
         self.signout_btn = tkinter.Button(self.frame_general, width=20, pady=7, text='Log out',
-                            bg='#db6e6e', fg='white', border=0)#0,command=self.signout)
+                            bg='#db6e6e', fg='white', border=0,command=self.signout)
         self.signout_btn.place(x=600, y=75)
         self.log_btn = tkinter.Button(self.frame_general, width=20, pady=7,
                         text='LOG', bg='#3f8ad4', fg='white', border=0,
@@ -615,32 +614,32 @@ class Home:
 
 
     #0
-    # def mail_receive(self,Subject, To, Message):
-    #     email_user = login.Login.current_user[4]
-    #     em = EmailMessage()
-    #     em['From'] = self.email_sender
-    #     em['To'] = To
-    #     em['Subject'] = Subject
-    #     em.set_content(Message)
-    #     context = ssl.create_default_context()
-    #     with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context) as smtp:
-    #         smtp.login(self.email_sender,self.email_password)
-    #         smtp.sendmail(self.email_sender,email_user,em.as_string())
+    def mail_receive(self,Subject, To, Message):
+        email_user = login.Login.current_user[4]
+        em = EmailMessage()
+        em['From'] = self.email_sender
+        em['To'] = To
+        em['Subject'] = Subject
+        em.set_content(Message)
+        context = ssl.create_default_context()
+        with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context) as smtp:
+            smtp.login(self.email_sender,self.email_password)
+            smtp.sendmail(self.email_sender,email_user,em.as_string())
 
     #0
-    # def add_usr_img(self):
-    #     self.register_new_user_window = tkinter.Toplevel(self.window)
-    #     self.register_new_user_window.geometry("600x520")
-    #     self.register_new_user_window.protocol("WM_DELETE_WINDOW", self.disable_event)
-    #     self.ok_button_register_new_user_window = tkinter.Button(self.register_new_user_window,
-    #                 text='OK',bg='green',width=20,
-    #                 command=lambda:login.Login.app.register_new_user(self.register_new_user_window,self.ok_button_register_new_user_window))
-    #     self.ok_button_register_new_user_window.place(x=450, y=200)
-    #     self.close_button_register_new_user_window = tkinter.Button(self.register_new_user_window,
-    #                 text='CLOSE',bg='red',width=20,
-    #                 command=self.close_event)
-    #     self.close_button_register_new_user_window.place(x=450, y=100)
-    #     login.Login.app.start(self.register_new_user_window,450,520)
+    def add_usr_img(self):
+        self.register_new_user_window = tkinter.Toplevel(self.window)
+        self.register_new_user_window.geometry("600x520")
+        self.register_new_user_window.protocol("WM_DELETE_WINDOW", self.disable_event)
+        self.ok_button_register_new_user_window = tkinter.Button(self.register_new_user_window,
+                    text='OK',bg='green',width=20,
+                    command=lambda:login.Login.app.register_new_user(self.register_new_user_window,self.ok_button_register_new_user_window))
+        self.ok_button_register_new_user_window.place(x=450, y=200)
+        self.close_button_register_new_user_window = tkinter.Button(self.register_new_user_window,
+                    text='CLOSE',bg='red',width=20,
+                    command=self.close_event)
+        self.close_button_register_new_user_window.place(x=450, y=100)
+        login.Login.app.start(self.register_new_user_window,450,520)
 
     def disable_event(self):
         pass
@@ -650,16 +649,16 @@ class Home:
         login.Login.app.end_video()
 
     #0
-    # def signout(self):
-    #     self.window.destroy()
-    #     with open(login.Login.log_path, 'a') as f:
-    #         f.write('{}{}{}\n'.format(login.Login.current_user[1], " logged out at ", datetime.datetime.now()))
-    #         f.close()
-    #     login.Login.current_user = None
-    #     self.mycursor.execute("UPDATE users SET keepme = false WHERE keepme = true")
-    #     self.mydb.commit()
-    #     subprocess.call(['python', 'G-School.py'])
-    #     #login.Login().start()
+    def signout(self):
+        self.window.destroy()
+        with open(login.Login.log_path, 'a') as f:
+            f.write('{}{}{}\n'.format(login.Login.current_user[1], " logged out at ", datetime.datetime.now()))
+            f.close()
+        login.Login.current_user = None
+        self.mycursor.execute("UPDATE users SET keepme = false WHERE keepme = true")
+        self.mydb.commit()
+        subprocess.call(['python', 'G-School.py'])
+        #login.Login().start()
 
     def current_user_fill(self):
         pass
@@ -1104,19 +1103,12 @@ class Home:
         lb5.place(x=5, y=240)
         # vars = IntVar()
         ttk.Combobox(self.register_window, values=["Male","Female"],textvariable=self.user_gender).place(x=200, y=240,width=100)
-        # Radiobutton(self.register_window, text="Female", padx=10, variable=vars, value=2).place(x=240, y=240)
 
-        # list_of_cntry = ("Admin", "User", "Student", "Teacher", "Administration")
-        # cv = StringVar()
-        # drplist = OptionMenu(self.register_window, cv, *list_of_cntry)
-        # drplist.config(width=15)
-        # cv.set("User")
         self.identity_combo = ttk.Combobox(self.register_window, values=["Admin", "User", "Student", "Teacher", "Administration"],textvariable=self.user_identity)
         self.identity_combo.place(x=200, y=275,width=100)
         self.identity_combo.set("User")
         lb2 = Label(self.register_window, text="Select Identity", width=13, font=("arial", 10))
         lb2.place(x=14, y=280)
-        # drplist.place(x=200, y=275)
 
         lb6 = Label(self.register_window, text="Enter Password", width=13, font=("arial", 10))
         lb6.place(x=19, y=320)
@@ -1223,6 +1215,4 @@ class Home:
 
     def start(self):
         self.window.mainloop()
-
-p = Home()
-p.start()
+###UT
