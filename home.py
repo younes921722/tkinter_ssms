@@ -17,6 +17,7 @@ import mysql.connector
 import pandas as pd
 import os
 from tkinter import filedialog
+import bcrypt
 
 
 class Home:
@@ -1146,7 +1147,9 @@ class Home:
         cursor = connection.cursor()
         try:
             sqlInsert = "INSERT INTO users_data values(%s,%s,%s,%s,%s,%s,%s,%s)"
-            values = (self.username.get(), self.user_first_name.get(), self.user_last_name.get(), self.user_email.get(), self.user_contact.get(), self.user_gender.get(), self.user_identity.get(), self.user_password0.get())
+            pw = bytes(self.user_password1.get(), encoding="ascii")
+            encrypted_password = bcrypt.hashpw(pw, bcrypt.gensalt())
+            values = (self.username.get(), self.user_first_name.get(), self.user_last_name.get(), self.user_email.get(), self.user_contact.get(), self.user_gender.get(), self.user_identity.get(), encrypted_password)
             cursor.execute(sqlInsert, values)
             connection.commit()
 
